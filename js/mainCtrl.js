@@ -1,8 +1,9 @@
-angular.module("app").controller("mainCtrl", function($scope, mainSrvc) {
+angular.module("app").controller("mainCtrl", function($scope, mainSrvc, $stateParams) {
 	$scope.getRecipes = function(searchTerm1,searchTerm2,searchTerm3) {
 		if (searchTerm1) {
 			mainSrvc.getRecipes(searchTerm1,searchTerm2,searchTerm3).then(function(response) {
 				$scope.recipes = response;
+				console.log($scope.recipes);
 				$scope.first = $scope.searchTerm1;
 				$scope.second = $scope.searchTerm2;
 				$scope.third = $scope.searchTerm3;
@@ -15,7 +16,11 @@ angular.module("app").controller("mainCtrl", function($scope, mainSrvc) {
 			alert('Ingredient 1 is missing!');
 		}
 		
-	}
+	};
+
+	// $scope.getIngredients = function(itemId) {
+
+	// };
 });
 
 

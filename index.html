@@ -3,28 +3,42 @@
 	<head>
 		<title>Title</title>
 		<meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
         <link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 
-	<body ng-controller="mainCtrl">
-		<input type="text" id="searchTerm1" ng-model="searchTerm1" placeholder="Ingredient 1">
-		<input type="text" id="searchTerm2" ng-model="searchTerm2" placeholder="Ingredient 2">
-		<input type="text" id="searchTerm3" ng-model="searchTerm3" placeholder="Ingredient 3">
-		<button type="button" id="submitIngredients" ng-click="getRecipes(searchTerm1,searchTerm2,searchTerm3)">Let's Cook!</button>
-		</br>
-
-		<p class="recipeDisplay" ng-show="show && first">Now showing yummy noms with {{first}}<span ng-show="second && show">, {{second}}</span><span ng-show="third && show">, {{third}}</span></p>
-
-		<div ng-repeat="recipe in recipes">
-		{{recipe.title}}-{{recipe.recipe_id}} </br>
-		<img ng-src={{recipe.image_url}}></br>
-		</div>
+	<body>
+		<ui-view></ui-view>
+		<div id="modal1" class="modal">
+    		<div class="modal-content">
+      			<h4>Title</h4>
+      			<p>Ingredients goes here</p>
+    		</div>
+    		<div class="modal-footer">
+      			<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Email to Friend</a>
+    		</div>
+  		</div>
 	</body>
 
+	<!--jQuery-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- 	<script src="js/jquery-2.0.3.min.js"></script> -->
+
+	<!--Materialize-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+	<!--Angular-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
-<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script> -->
-	<script src="js/jquery-2.0.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+
+	<!--Documents-->
 	<script src="js/animations.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/mainCtrl.js"></script>
